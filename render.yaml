@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: dua-gifts-backend
+    env: node
+    rootDir: backend/apps/backend
+    plan: free
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: STORE_CORS
+        value: https://dua-gifts.vercel.app,http://localhost:3000
+      - key: ADMIN_CORS
+        value: https://dua-gifts-backend.onrender.com,http://localhost:9000,http://localhost:5173
+      - key: AUTH_CORS
+        value: https://dua-gifts.vercel.app,http://localhost:3000,https://dua-gifts-backend.onrender.com
+      - key: CASHFREE_APP_ID
+        value: 1404644f11e5afaf3816547d8ff4464041
+      - key: CASHFREE_SECRET_KEY
+        value: cfsk_ma_prod_2f649ff24b99ff0fbe998a24c9e80b21_d24098e5
+      - key: CASHFREE_ENV
+        value: PRODUCTION
+      - key: CASHFREE_API_VERSION
+        value: 2023-08-01

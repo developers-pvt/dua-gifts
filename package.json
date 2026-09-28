@@ -1,0 +1,23 @@
+{
+  "name": "dua-gifts",
+  "version": "2.0.0",
+  "description": "Production-Ready Consolidated Gift Commerce Platform (Medusa JS Backend + Dua Gifts Next.js Frontend)",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend/apps/backend && medusa develop --port 9000 --no-lint",
+    "dev:frontend": "cd frontend-shopco && pnpm dev",
+    "build:backend": "cd backend/apps/backend && medusa build",
+    "build:frontend": "cd frontend-shopco && pnpm build",
+    "start:backend": "cd backend/apps/backend && medusa start",
+    "start:frontend": "cd frontend-shopco && pnpm start"
+  },
+  "keywords": [
+    "medusa",
+    "dua-gifts",
+    "gift-commerce",
+    "consolidated-gifting",
+    "ecommerce"
+  ],
+  "author": "Dua Gifts",
+  "license": "MIT"
+}

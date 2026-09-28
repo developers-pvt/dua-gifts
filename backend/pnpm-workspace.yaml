@@ -1,0 +1,12 @@
+packages:
+  - "apps/**"
+  - "!apps/backend/.medusa/**"
+
+# pnpm 11+
+allowBuilds:
+  '@embedded-postgres/windows-x64': true
+  "@medusajs/telemetry": true
+  '@swc/core': true
+  esbuild: true
+  msgpackr-extract: true
+  protobufjs: true
