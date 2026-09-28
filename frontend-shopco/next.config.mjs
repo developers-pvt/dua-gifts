@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: false,
   compress: true,
   swcMinify: true,
+  staticPageGenerationTimeout: 180,
   experimental: {
     optimizePackageImports: [
       'lucide-react',

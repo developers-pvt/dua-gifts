@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { reviewsData } from "@/lib/reviews-data";
 
+export const dynamic = "force-dynamic";
+
 let dynamicReviews = [...reviewsData];
 
 export async function GET() {

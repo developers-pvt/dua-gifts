@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { Product } from "@/types/product.types";
 import catalogFallback from "@/lib/giftstudio-catalog.json";
 
+export const dynamic = "force-dynamic";
+
 const MEDUSA_URL = process.env.NEXT_PUBLIC_MEDUSA_URL || "http://localhost:9000";
 const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "pk_giftstudio_web_99182";
 
@@ -62,6 +64,7 @@ export async function GET(req: NextRequest) {
       headers: {
         "x-publishable-api-key": PUBLISHABLE_KEY,
       },
+      signal: AbortSignal.timeout(3000),
       next: { revalidate: 60 },
     });
 

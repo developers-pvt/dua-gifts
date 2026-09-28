@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const MEDUSA_URL = process.env.NEXT_PUBLIC_MEDUSA_URL || "http://localhost:9000";
 const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "pk_giftstudio_web_99182";
 
@@ -17,6 +19,7 @@ export async function GET(req: NextRequest) {
   try {
     const res = await fetch(`${MEDUSA_URL}/store/product-categories`, {
       headers: { "x-publishable-api-key": PUBLISHABLE_KEY },
+      signal: AbortSignal.timeout(3000),
       next: { revalidate: 300 },
     });
 
