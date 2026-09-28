@@ -25,6 +25,8 @@ backend/apps/backend/.pgdata/
 backend/apps/backend/.env
 frontend-shopco/.env.local
 frontend-shopco/.env
+*INFO.TXT
+*.key
 
 # Logs
 logs/
