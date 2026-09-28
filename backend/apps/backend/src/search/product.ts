@@ -6,9 +6,9 @@ import {
   search,
 } from "@medusajs/framework/utils";
 
-import { ProductOptionRow, toOptionValues } from "./helpers/option-values";
-import { loadPricing, priceFields, toProductPricing } from "./helpers/pricing";
-import { resolveProductIds } from "./helpers/resolve-product-ids";
+import { ProductOptionRow, toOptionValues } from "./helpers/option-values.js";
+import { loadPricing, priceFields, toProductPricing } from "./helpers/pricing.js";
+import { resolveProductIds } from "./helpers/resolve-product-ids.js";
 
 const PRODUCT_GRAPH_FIELDS = [
   "id",
