@@ -11,6 +11,8 @@ import {
 } from "@/lib/giftstudio-products";
 import { reviewsData } from "@/lib/reviews-data";
 
+export const dynamic = "force-dynamic";
+
 const MEDUSA_URL = process.env.NEXT_PUBLIC_MEDUSA_URL || "http://localhost:9000";
 const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "pk_giftstudio_web_99182";
 
@@ -27,6 +29,7 @@ async function getHomePageData(): Promise<{
   try {
     const res = await fetch(`${MEDUSA_URL}/store/products?limit=20`, {
       headers: { "x-publishable-api-key": PUBLISHABLE_KEY },
+      signal: AbortSignal.timeout(3000),
       next: { revalidate: 60 },
     });
 

@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { Product } from "@/types/product.types";
 import catalogFallback from "@/lib/giftstudio-catalog.json";
 
+export const dynamic = "force-dynamic";
+
 const MEDUSA_URL = process.env.NEXT_PUBLIC_MEDUSA_URL || "http://localhost:9000";
 const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "pk_giftstudio_web_99182";
 
@@ -16,6 +18,7 @@ async function fetchProduct(idOrSlug: string): Promise<{ product: Product | null
   try {
     const res = await fetch(`${MEDUSA_URL}/store/products/${encodeURIComponent(idOrSlug)}`, {
       headers: { "x-publishable-api-key": PUBLISHABLE_KEY },
+      signal: AbortSignal.timeout(3000),
       next: { revalidate: 60 },
     });
     if (res.ok) {
